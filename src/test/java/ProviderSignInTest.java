@@ -11,7 +11,7 @@ public class ProviderSignInTest extends Baseclass {
     public ProviderSignInTest() throws IOException {
         super();
     }
-    @BeforeTest
+    @BeforeSuite
     public void setUp() throws IOException {
         Baseclass.init();
         ProviderSignIn ProviderSignInObj = new ProviderSignIn();
@@ -48,7 +48,7 @@ public class ProviderSignInTest extends Baseclass {
             System.out.println("Problem in clicking the login button... " + e.getMessage());
         }
     }
-    @AfterTest
+    @AfterSuite
     public void kill() {
         Baseclass.driver.close();
     }

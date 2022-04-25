@@ -1,8 +1,6 @@
 import Pages.Baseclass;
 import Pages.ProviderSignInFromHome;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -15,7 +13,7 @@ public class ProviderSignInFromHomeTest {
     public ProviderSignInFromHomeTest () {
         super();
     }
-    @BeforeTest
+    @BeforeSuite
     public void setUp () throws IOException {
         Baseclass.init();
         ProviderSignInFromHome providerSignInFromHome = new ProviderSignInFromHome();
@@ -61,7 +59,7 @@ public class ProviderSignInFromHomeTest {
         }
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
     }
-    @AfterTest
+    @AfterSuite
     public void kill () {
         driver.close();
     }
