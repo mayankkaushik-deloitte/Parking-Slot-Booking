@@ -19,7 +19,7 @@ public class ProviderSignInFromHomeTest {
         ProviderSignInFromHome providerSignInFromHome = new ProviderSignInFromHome();
         Baseclass.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
-    @Test
+    @Test (priority = 1)
     public void clickSignIn() {
         try{
             clickOnSignIn();
@@ -30,7 +30,7 @@ public class ProviderSignInFromHomeTest {
             Baseclass.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         }
     }
-    @Test
+    @Test (priority = 2)
     public void addEmail() {
         try{
             ProviderSignInFromHome.addEmail();
@@ -40,7 +40,7 @@ public class ProviderSignInFromHomeTest {
             Baseclass.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         }
     }
-    @Test
+    @Test (priority = 3)
     public void addPassword() {
         try{
             ProviderSignInFromHome.addPassword();
@@ -50,7 +50,7 @@ public class ProviderSignInFromHomeTest {
             Baseclass.driver.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS);
         }
     }
-    @Test
+    @Test (priority = 4)
     public void clickOnLogin(){
         try{
             ProviderSignInFromHome.clickLogin();
