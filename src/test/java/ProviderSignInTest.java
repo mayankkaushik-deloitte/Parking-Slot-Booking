@@ -1,10 +1,7 @@
 import Pages.Baseclass;
-import Pages.ProviderSignIn;
-import org.apache.xmlbeans.impl.common.SniffedXmlInputStream;
 import org.testng.annotations.*;
-
+import Pages.ProviderSignIn;
 import java.io.IOException;
-import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 public class ProviderSignInTest extends Baseclass {
     public ProviderSignInTest() throws IOException {
@@ -17,10 +14,15 @@ public class ProviderSignInTest extends Baseclass {
         Baseclass.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
     @Test(priority = 1)
-    public void registerClick() {
-        ProviderSignIn.clickRegisterHere();
+    public void registerClick()
+    {
+        try {
+            ProviderSignIn.clickRegisterHere();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-    @Test(priority = 2)
+    @Test(priority =2)
     public void signInButton() {
         try {
             ProviderSignIn.clickSignInForm();
@@ -51,3 +53,7 @@ public class ProviderSignInTest extends Baseclass {
         Baseclass.driver.close();
     }
 }
+
+
+
+

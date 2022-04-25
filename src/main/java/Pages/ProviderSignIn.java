@@ -1,14 +1,10 @@
 package Pages;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-
-import static Utils.ExcelFileReading.sheet;
 
 public class ProviderSignIn extends Baseclass{
     @FindBy(xpath = "//*[@id='email']")
@@ -24,8 +20,10 @@ public class ProviderSignIn extends Baseclass{
     public ProviderSignIn() throws IOException {
         PageFactory.initElements(driver,this);
     }
-    public static void clickRegisterHere() {
+    public static void clickRegisterHere()
+    {
         registerHere.click();
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
     }
     public static void clickSignInForm() {
         signInBtn.click();
