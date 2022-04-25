@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import static Pages.Baseclass.driver;
@@ -22,12 +23,14 @@ public class ActiveBookingTest {
         Baseclass.init();
         ProviderSignIn providerSignIn = new ProviderSignIn();
         ActiveBooking activeBooking = new ActiveBooking();
-        Baseclass.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
+
     }
     @Test(priority = 1)
     public void registerClick() {
         ProviderSignIn.clickRegisterHere();
-        Baseclass.driver.manage().timeouts().implicitlyWait(1,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
+
     }
     @Test(priority = 2)
     public void signInButton() {
@@ -36,18 +39,20 @@ public class ActiveBookingTest {
         }catch (Exception e){
             System.out.println("Problem in clicking the signing form... " + e.getMessage());
         }
-        Baseclass.driver.manage().timeouts().implicitlyWait(1,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
 
     }
     @Test(priority = 3)
     public void signInForm() {
         try{
             ProviderSignIn.addEmail();
+            driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
         }catch (Exception e){
             System.out.println("Problem in adding the email...." + e.getMessage());
         }
         try {
             ProviderSignIn.addPassword();
+            driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
         }catch (Exception e){
             System.out.println("Problem in adding the password... " + e.getMessage());
         }
@@ -56,27 +61,28 @@ public class ActiveBookingTest {
         }catch (Exception e){
             System.out.println("Problem in clicking the login button... " + e.getMessage());
         }
-        Baseclass.driver.manage().timeouts().implicitlyWait(1,TimeUnit.SECONDS);
-
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
     }
     @Test(priority = 4)
     public void clickOnDashboard() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
         try{
             ActiveBooking.clickOnMyDashBoard();
         }catch (Exception e){
             System.out.println("Problem with clicking the dashboard.. " + e.getMessage());
         }
-        Baseclass.driver.manage().timeouts().implicitlyWait(1,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
 
     }
     @Test(priority = 5)
     public void checkActiveBookings() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
         try{
             Assert.assertEquals(ActiveBooking.bookingStatus(driver),true);
         }catch (Exception e){
             System.out.println(driver.getCurrentUrl());
         }
-        Baseclass.driver.manage().timeouts().implicitlyWait(1,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
     }
     @AfterTest
     public void kill () {
