@@ -3,9 +3,7 @@ import Pages.Baseclass;
 import Pages.ProviderSignIn;
 import Pages.ProviderSignInFromHome;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -18,7 +16,7 @@ public class ActiveBookingTest {
     public ActiveBookingTest () {
         super();
     }
-    @BeforeTest
+    @BeforeSuite
     public void setUp () throws IOException {
         Baseclass.init();
         ProviderSignIn providerSignIn = new ProviderSignIn();
@@ -84,7 +82,7 @@ public class ActiveBookingTest {
         }
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
     }
-    @AfterTest
+    @AfterSuite
     public void kill () {
         Baseclass.driver.close();
     }
