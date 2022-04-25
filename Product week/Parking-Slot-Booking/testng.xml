@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="C:/Users/manjpr/Desktop/Product week/Parking-Slot-Booking">
+    <classes>
+<!--        <class name="ProviderSignInTest"></class>-->
+<!--        <class name="ProviderBusinessTest"></class>-->
+        <class name="ConsumerSignInTest"></class>
+        <class name="ConsumerDashboardTest"></class>
+<!--        <class name="ConsumerLocationTest"></class>-->
+<!--        <class name="ProviderSignUpTest"></class>-->
+<!--        <class name="ProfilecompletingTest"></class>-->
+<!--        <class name="ConsumerSignupTest"></class>-->
+    </classes></test></suite>
