@@ -41,12 +41,12 @@ public class ProviderSignUp extends Baseclass{
     public static void enter_username()
     {
         String user_Val = sheet.getRow(1).getCell(2).getStringCellValue();
-        userName.sendKeys(user_Val);
+        userName.sendKeys("provider10000");
     }
     public static void enter_email()
     {
         String email_Val = sheet.getRow(1).getCell(3).getStringCellValue();
-        providerEmail.sendKeys(email_Val);
+        providerEmail.sendKeys("provider10000@gmail.com");
     }
     public static void enter_password()
     {
