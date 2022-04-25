@@ -1,34 +1,28 @@
 package Pages;
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import static Utils.ExcelFileReading.sheet;
-
-public class ProviderSignIn extends Baseclass{
+public class ProviderSignInFromHome extends Baseclass{
+    @FindBy(xpath = "//*[@id='mobile']/li[4]/button")
+    static
+    WebElement signInBtn;
     @FindBy(xpath = "//*[@id='email']")
-    public static WebElement email;
+    static
+    WebElement email;
     @FindBy(xpath = "//*[@id='password']")
-    public static WebElement password;
+    static
+    WebElement password;
     @FindBy(xpath = "//*[@id='signInModal']/div/div/div[2]/main/div/form/div[3]/div[2]/button")
-    public static WebElement loginBtn;
-    @FindBy(xpath = "//*[@id='mobile']/li[3]/button")
-    public static WebElement signInBtn;
-    @FindBy(xpath = "/html/body/div[1]/div/div/section[1]/div/div[2]/span/a")
-    public static WebElement registerHere;
-    public ProviderSignIn() throws IOException {
+    static
+    WebElement loginBtn;
+    public ProviderSignInFromHome() {
         PageFactory.initElements(driver,this);
     }
-    public static void clickRegisterHere() {
-        registerHere.click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-    }
-    public static void clickSignInForm() {
+    public static void clickOnSignIn() {
         signInBtn.click();
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
     }
@@ -42,7 +36,7 @@ public class ProviderSignIn extends Baseclass{
         password.sendKeys(passVal);
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
     }
-    public static void clickSignIn() {
+    public static void clickLogin() {
         loginBtn.click();
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
     }
