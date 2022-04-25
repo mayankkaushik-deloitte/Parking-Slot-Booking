@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import static Utils.ExcelFileReading.sheet;
@@ -26,24 +27,26 @@ public class ProviderSignIn extends Baseclass{
     }
     public static void clickRegisterHere() {
         registerHere.click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
+
     }
     public static void clickSignInForm() {
         signInBtn.click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
+
     }
     public static void addEmail() {
         String emailVal = sheet.getRow(1).getCell(0).getStringCellValue();
         email.sendKeys(emailVal);
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
     }
     public static void addPassword() {
         String passVal = sheet.getRow(1).getCell(1).getStringCellValue();
         password.sendKeys(passVal);
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
     }
     public static void clickSignIn() {
         loginBtn.click();
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
     }
 }

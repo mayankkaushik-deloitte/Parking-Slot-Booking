@@ -5,8 +5,10 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+import static Pages.Baseclass.driver;
 import static Pages.ProviderSignInFromHome.clickOnSignIn;
 
 public class ProviderSignInFromHomeTest {
@@ -17,7 +19,7 @@ public class ProviderSignInFromHomeTest {
     public void setUp () throws IOException {
         Baseclass.init();
         ProviderSignInFromHome providerSignInFromHome = new ProviderSignInFromHome();
-        Baseclass.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
     }
     @Test (priority = 1)
     public void clickSignIn() {
@@ -27,7 +29,7 @@ public class ProviderSignInFromHomeTest {
             System.out.println("Problem in clicking on sign in button.. " + e.getMessage());
         }
         finally {
-            Baseclass.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
         }
     }
     @Test (priority = 2)
@@ -37,7 +39,8 @@ public class ProviderSignInFromHomeTest {
         }catch (Exception e){
             System.out.println("Problem in adding values to the email... " + e.getMessage());
         }finally {
-            Baseclass.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
+
         }
     }
     @Test (priority = 3)
@@ -46,9 +49,8 @@ public class ProviderSignInFromHomeTest {
             ProviderSignInFromHome.addPassword();
         }catch (Exception e){
             System.out.println("Problem in adding values to the password... " + e.getMessage());
-        }finally {
-            Baseclass.driver.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS);
         }
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
     }
     @Test (priority = 4)
     public void clickOnLogin(){
@@ -56,12 +58,11 @@ public class ProviderSignInFromHomeTest {
             ProviderSignInFromHome.clickLogin();
         }catch (Exception e){
             System.out.println("Problem in clicking on login... " + e.getMessage());
-        }finally {
-            Baseclass.driver.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS);
         }
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
     }
     @AfterTest
     public void kill () {
-        Baseclass.driver.close();
+        driver.close();
     }
 }

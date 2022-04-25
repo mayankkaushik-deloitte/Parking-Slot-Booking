@@ -5,6 +5,7 @@ import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.sql.Time;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 public class ProviderSignInTest extends Baseclass {
     public ProviderSignInTest() throws IOException {
@@ -14,7 +15,8 @@ public class ProviderSignInTest extends Baseclass {
     public void setUp() throws IOException {
         Baseclass.init();
         ProviderSignIn ProviderSignInObj = new ProviderSignIn();
-        Baseclass.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
+
     }
     @Test(priority = 1)
     public void registerClick() {
