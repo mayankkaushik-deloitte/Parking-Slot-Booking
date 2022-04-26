@@ -8,9 +8,7 @@ import org.openqa.selenium.ElementNotVisibleException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -23,7 +21,7 @@ public class ConsumerParkingSlotBookingTest extends Baseclass {
         super();
     }
 
-    @BeforeTest
+    @BeforeSuite
     public void setUp() throws IOException {
         Baseclass.init();
 
@@ -75,7 +73,7 @@ public class ConsumerParkingSlotBookingTest extends Baseclass {
         }
 
     }
-    @AfterTest
+    @AfterSuite
     public void close_browser()
     {
         driver.quit();

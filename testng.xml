@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="C:/Users/malpraneeth/Parking-Slot-Booking/Parking-Slot-Booking">
+    <test verbose="2" preserve-order="true" name="C:\Users\mayakaushik\Documents\Product_Week">
         <classes>
-
-            <class name="ConsumerSignInTest"></class>
-            <class name="ConsumerLocationTest"></class>
-        <class name="Utils.ConsumerContactUsTest"></class>
-
+            <class name="ActiveBookingTest"></class>
             <class name="ProviderSignInTest"></class>
+            <class name="ProviderSignInFromHomeTest"></class>
+            <class name="ConsumerActiveBookingTest"></class>
+            <class name="ConsumerContactUsTest"></class>
             <class name="ProviderBusinessTest"></class>
-
-
-
+            <class name="ProviderMyProfileTest"></class>
             <class name="ProviderSignUpTest"></class>
             <class name="ProfilecompletingTest"></class>
-
+            <class name="ConsumerLocationTest"></class>
+            <class name="ConsumerSignInTest"></class>
+            <class name="ConsumerParkingSlotBookingTest"></class>
         </classes>
     </test>
 </suite>

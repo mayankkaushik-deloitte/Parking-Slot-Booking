@@ -2,9 +2,7 @@ import Pages.Baseclass;
 import Pages.ProviderSignIn;
 import Pages.ProviderSignUp;
 import org.openqa.selenium.By;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.junit.Assert;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -13,7 +11,7 @@ public class ProviderSignUpTest extends Baseclass {
     public ProviderSignUpTest() throws IOException {
         super();
     }
-    @BeforeTest
+    @BeforeSuite
     public void setUp() throws IOException {
         Baseclass.init();
         ProviderSignUp ProviderSignUpObj = new ProviderSignUp();
@@ -81,7 +79,7 @@ public class ProviderSignUpTest extends Baseclass {
         String actual = driver.switchTo().alert().getText();
         Assert.assertEquals(expected,actual);
     }
-    @AfterTest
+    @AfterSuite
     public void kill() {
         Baseclass.driver.close();
     }

@@ -2,9 +2,7 @@ import Pages.Baseclass;
 import Pages.ProviderMyProfile;
 import Pages.ProviderSignIn;
 import Pages.ProviderSignUp;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -16,7 +14,7 @@ public class ProviderMyProfileTest {
     public ProviderMyProfileTest() throws IOException {
         super();
     }
-    @BeforeTest
+    @BeforeSuite
     public void setUp() throws IOException {
         Baseclass.init();
 
@@ -48,7 +46,7 @@ public class ProviderMyProfileTest {
         ProviderMyProfileObj.validCountry();*/
         ProviderMyProfileObj.js1Click(driver);
     }
-    @AfterTest
+    @AfterSuite
     public  void close_Browser()
     {
    driver.quit();

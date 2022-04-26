@@ -1,50 +1,56 @@
 import Pages.Baseclass;
-import Pages.ConsumerSignIn;
-import Pages.ProviderSignIn;
-import org.apache.xmlbeans.impl.common.SniffedXmlInputStream;
-import org.testng.annotations.*;
+import Pages.ConsumerSignup;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.sql.Time;
 import java.util.concurrent.TimeUnit;
-public class ConsumerSignInTest extends Baseclass{
-    public ConsumerSignInTest() throws IOException {
+
+public class ConsumerSignupTest extends Baseclass {
+    public ConsumerSignupTest() throws IOException {
         super();
     }
-    @BeforeSuite
+    @BeforeTest
     public void setUp() throws IOException {
         Baseclass.init();
-        ConsumerSignIn consumerSignIn = new ConsumerSignIn();
+        ConsumerSignup consumer = new ConsumerSignup();
         Baseclass.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
     @Test(priority = 1)
+    public void registerClick() throws InterruptedException {
+        ConsumerSignup.click_signIn();
+    }
+    @Test(priority = 2)
     public void signInButton() {
         try {
-            ConsumerSignIn.clickSignInForm();
+            ConsumerSignup.click_register();
         }catch (Exception e){
             System.out.println("Problem in clicking the signing form... " + e.getMessage());
         }
     }
-    @Test(priority = 2)
-    public void signInForm() {
+    @Test(priority = 3)
+    public void sign_up_form()
+    {
         try{
-            ConsumerSignIn.addEmail();
+            ConsumerSignup.enter_username();
         }catch (Exception e){
             System.out.println("Problem in adding the email...." + e.getMessage());
         }
         try {
-            ConsumerSignIn.addPassword();
+            ConsumerSignup.enter_email();
         }catch (Exception e){
             System.out.println("Problem in adding the password... " + e.getMessage());
         }
         try {
-            ConsumerSignIn.clickSignIn();
+            ConsumerSignup.enter_password();
+        }catch (Exception e){
+            System.out.println("Problem in clicking the login button... " + e.getMessage());
+        }
+        try {
+            ConsumerSignup.signup();
         }catch (Exception e){
             System.out.println("Problem in clicking the login button... " + e.getMessage());
         }
     }
-    @AfterSuite
-    public void kill() {
-        Baseclass.driver.close();
-    }
+
 }

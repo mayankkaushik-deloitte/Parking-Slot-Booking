@@ -7,9 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -19,7 +17,7 @@ public class ConsumerActiveBookingTest extends Baseclass {
     public ConsumerActiveBookingTest() throws IOException {
         super();
     }
-    @BeforeTest
+    @BeforeSuite
     public void setUp() throws IOException {
         Baseclass.init();
         ConsumerSignIn consumerSignIn=new ConsumerSignIn();
@@ -141,10 +139,10 @@ public class ConsumerActiveBookingTest extends Baseclass {
             System.out.println("Problem in payment" + e.getMessage());
         }
     }
-//    @AfterTest
-//    public void kill() {
-//        Baseclass.driver.close();
-//    }
+    @AfterSuite
+    public void kill() {
+        Baseclass.driver.close();
+    }
 
 
 
