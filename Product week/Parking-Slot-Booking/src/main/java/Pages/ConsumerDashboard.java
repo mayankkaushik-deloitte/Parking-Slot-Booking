@@ -12,8 +12,6 @@ public class ConsumerDashboard extends Baseclass{
         Thread.sleep(5000);
         WebElement profile = By.xpath("//*[@id='mobile']/li[4]/div/span/img").findElement(driver);
         profile.click();
-//        Actions actions = new Actions(driver);
-//        actions.moveToElement(profile).build().perform();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
     public void ClickDashBoardButton() {
