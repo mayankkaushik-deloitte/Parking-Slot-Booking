@@ -1,11 +1,10 @@
 import Pages.Baseclass;
 import Pages.ProviderSignIn;
-import org.apache.xmlbeans.impl.common.SniffedXmlInputStream;
 import org.testng.annotations.*;
 
 import java.io.IOException;
-import java.sql.Time;
 import java.util.concurrent.TimeUnit;
+
 public class ProviderSignInTest extends Baseclass {
     public ProviderSignInTest() throws IOException {
         super();
