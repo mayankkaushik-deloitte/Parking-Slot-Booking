@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
-@Listeners(ExtentReport.class)
+
 public class ConsumerParkingSlotBookingTest extends Baseclass {
 
     public ConsumerParkingSlotBookingTest() throws IOException {
@@ -29,30 +29,25 @@ public class ConsumerParkingSlotBookingTest extends Baseclass {
     }
 
     @Test(priority = 1)
-    public void withoutEnteringDetails() throws IOException {
+    public void withoutEnteringDetails() throws IOException, InterruptedException {
 
 
         Actions action = new Actions(driver);
         ConsumerParkingSlotBooking ConsumerBookingObj = new ConsumerParkingSlotBooking();
-        //ConsumerBookingObj.selectLocation();
-        Baseclass.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+
+
 
 
         ConsumerBookingObj.js1Click(driver);
-        try {
-            if (driver.findElement(By.xpath("(//button[@class='btn btn-primary']")).isEnabled()) {
-                System.out.println("Show more is  there");
-            }
-        } catch (Exception e) {
-            System.out.println("Show more is not there");
-        }
+        ConsumerBookingObj.checkAfter_invalidDetails();
 
 
     }
+
     @Test(priority = 2)
-            public void without_entering_entryDate() throws IOException {
+    public void without_entering_entryDate() throws IOException, InterruptedException {
         driver.navigate().refresh();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
+
         Actions action = new Actions(driver);
         ConsumerParkingSlotBooking consumerParkingSlotBookingobj = new ConsumerParkingSlotBooking();
         consumerParkingSlotBookingobj.selectLocation();
@@ -64,18 +59,13 @@ public class ConsumerParkingSlotBookingTest extends Baseclass {
 
 
         consumerParkingSlotBookingobj.js1Click(driver);
-        try {
-            if (driver.findElement(By.xpath("(//button[@class='btn btn-primary']")).isEnabled()) {
-                System.out.println("Show more is  there");
-            }
-        } catch (Exception e) {
-            System.out.println("Show more is not there");
-        }
+        consumerParkingSlotBookingobj.checkAfter_invalidDetails();
     }
+
     @Test(priority = 3)
-    public void without_entering_entryTime() throws IOException {
+    public void without_entering_entryTime() throws IOException, InterruptedException {
         driver.navigate().refresh();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
+
         Actions action = new Actions(driver);
         ConsumerParkingSlotBooking consumerParkingSlotBookingobj = new ConsumerParkingSlotBooking();
         consumerParkingSlotBookingobj.selectLocation();
@@ -85,20 +75,15 @@ public class ConsumerParkingSlotBookingTest extends Baseclass {
         consumerParkingSlotBookingobj.js1Click(driver);
 
 
-
         consumerParkingSlotBookingobj.js1Click(driver);
-        try {
-            if (driver.findElement(By.xpath("(//button[@class='btn btn-primary']")).isEnabled()) {
-                System.out.println("Show more is  there");
-            }
-        } catch (Exception e) {
-            System.out.println("Show more is not there");
-        }
+        consumerParkingSlotBookingobj.checkAfter_invalidDetails();
+
     }
+
     @Test(priority = 4)
-    public void without_entering_exitDate() throws IOException {
+    public void without_entering_exitDate() throws IOException, InterruptedException {
         driver.navigate().refresh();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
+
         Actions action = new Actions(driver);
         ConsumerParkingSlotBooking consumerParkingSlotBookingobj = new ConsumerParkingSlotBooking();
         consumerParkingSlotBookingobj.selectLocation();
@@ -107,20 +92,16 @@ public class ConsumerParkingSlotBookingTest extends Baseclass {
 
         consumerParkingSlotBookingobj.enter_exitTime();
         consumerParkingSlotBookingobj.js1Click(driver);
-        Baseclass.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+
 
 
         consumerParkingSlotBookingobj.js1Click(driver);
-        try {
-            if (driver.findElement(By.xpath("(//button[@class='btn btn-primary']")).isEnabled()) {
-                System.out.println("Show more is  there");
-            }
-        } catch (Exception e) {
-            System.out.println("Show more is not there");
-        }
+        consumerParkingSlotBookingobj.checkAfter_invalidDetails();
+
     }
+
     @Test(priority = 5)
-    public void without_entering_exitTime() throws IOException {
+    public void without_entering_exitTime() throws IOException, InterruptedException {
         driver.navigate().refresh();
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
         Actions action = new Actions(driver);
@@ -135,40 +116,32 @@ public class ConsumerParkingSlotBookingTest extends Baseclass {
 
 
         consumerParkingSlotBookingobj.js1Click(driver);
-        try {
-            if (driver.findElement(By.xpath("(//button[@class='btn btn-primary']")).isEnabled()) {
-                System.out.println("Show more is  there");
-            }
-        } catch (Exception e) {
-            System.out.println("Show more is not there");
-        }
+        consumerParkingSlotBookingobj.checkAfter_invalidDetails();
     }
-    @Test(priority = 6)
-    public void consumerSignin()
-    {
 
-    }
     @Test(priority = 7)
-    public void enterValidDetails() throws IOException {
-        driver.navigate().refresh();
+    public void enterValidDetails() throws IOException, InterruptedException {
 
- ConsumerParkingSlotBooking consumerParkingSlotBookingobj= new ConsumerParkingSlotBooking();
-   driver.navigate().refresh();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
+        ConsumerParkingSlotBooking consumerParkingSlotBookingobj = new ConsumerParkingSlotBooking();
+        consumerParkingSlotBookingobj.signinForm();
+        consumerParkingSlotBookingobj.enter_Email();
+        consumerParkingSlotBookingobj.enter_password();
+        consumerParkingSlotBookingobj.click_signIn();
+
+
         consumerParkingSlotBookingobj.selectLocation();
+
+
         consumerParkingSlotBookingobj.enter_entryDate();
         consumerParkingSlotBookingobj.enter_entryTime();
         consumerParkingSlotBookingobj.enter_exitDate();
         consumerParkingSlotBookingobj.enter_exitTime();
         consumerParkingSlotBookingobj.js1Click(driver);
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
-        try {
-            if (driver.findElement(By.xpath("(//button[@class='btn btn-primary']")).isEnabled()) {
-                System.out.println("Show more is  there");
-            }
-        } catch (Exception e) {
-            System.out.println("Show more is not there");
-        }
+        consumerParkingSlotBookingobj.bookSlot(driver);
+        consumerParkingSlotBookingobj.Add_Vehicle(driver);
+        consumerParkingSlotBookingobj.addManufacturer();
+        consumerParkingSlotBookingobj.click_submit(driver);
+        consumerParkingSlotBookingobj.check_reseve();
 
     }
     @AfterTest
