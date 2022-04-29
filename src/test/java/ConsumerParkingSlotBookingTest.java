@@ -21,7 +21,7 @@ public class ConsumerParkingSlotBookingTest extends Baseclass {
         super();
     }
 
-    @BeforeSuite
+    @BeforeTest
     public void setUp() throws IOException {
         Baseclass.init();
 
@@ -29,51 +29,122 @@ public class ConsumerParkingSlotBookingTest extends Baseclass {
     }
 
     @Test(priority = 1)
-    public void withoutEnteringDetails() throws IOException {
+    public void withoutEnteringDetails() throws IOException, InterruptedException {
+
+
         Actions action = new Actions(driver);
         ConsumerParkingSlotBooking ConsumerBookingObj = new ConsumerParkingSlotBooking();
-        ConsumerBookingObj.selectLocation();
-        Baseclass.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+
+
 
 
         ConsumerBookingObj.js1Click(driver);
-        try {
-            if (driver.findElement(By.xpath("(//button[@class='btn btn-primary']")).isEnabled()) {
-                System.out.println("Show more is  there");
-            }
-        } catch (Exception e) {
-            System.out.println("Show more is not there");
-        }
+        ConsumerBookingObj.checkAfter_invalidDetails();
 
 
     }
+
     @Test(priority = 2)
-    public void consumerSignin()
-    {
-
-    }
-    @Test(priority = 3)
-    public void enterValidDetails() throws IOException {
+    public void without_entering_entryDate() throws IOException, InterruptedException {
         driver.navigate().refresh();
 
- ConsumerParkingSlotBooking consumerParkingSlotBookingobj= new ConsumerParkingSlotBooking();
+        Actions action = new Actions(driver);
+        ConsumerParkingSlotBooking consumerParkingSlotBookingobj = new ConsumerParkingSlotBooking();
         consumerParkingSlotBookingobj.selectLocation();
+        consumerParkingSlotBookingobj.enter_entryTime();
+        consumerParkingSlotBookingobj.enter_exitDate();
+        consumerParkingSlotBookingobj.enter_exitTime();
+        consumerParkingSlotBookingobj.js1Click(driver);
+        Baseclass.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+
+
+        consumerParkingSlotBookingobj.js1Click(driver);
+        consumerParkingSlotBookingobj.checkAfter_invalidDetails();
+    }
+
+    @Test(priority = 3)
+    public void without_entering_entryTime() throws IOException, InterruptedException {
+        driver.navigate().refresh();
+
+        Actions action = new Actions(driver);
+        ConsumerParkingSlotBooking consumerParkingSlotBookingobj = new ConsumerParkingSlotBooking();
+        consumerParkingSlotBookingobj.selectLocation();
+        consumerParkingSlotBookingobj.enter_entryDate();
+        consumerParkingSlotBookingobj.enter_exitDate();
+        consumerParkingSlotBookingobj.enter_exitTime();
+        consumerParkingSlotBookingobj.js1Click(driver);
+
+
+        consumerParkingSlotBookingobj.js1Click(driver);
+        consumerParkingSlotBookingobj.checkAfter_invalidDetails();
+
+    }
+
+    @Test(priority = 4)
+    public void without_entering_exitDate() throws IOException, InterruptedException {
+        driver.navigate().refresh();
+
+        Actions action = new Actions(driver);
+        ConsumerParkingSlotBooking consumerParkingSlotBookingobj = new ConsumerParkingSlotBooking();
+        consumerParkingSlotBookingobj.selectLocation();
+        consumerParkingSlotBookingobj.enter_entryDate();
+        consumerParkingSlotBookingobj.enter_entryTime();
+
+        consumerParkingSlotBookingobj.enter_exitTime();
+        consumerParkingSlotBookingobj.js1Click(driver);
+
+
+
+        consumerParkingSlotBookingobj.js1Click(driver);
+        consumerParkingSlotBookingobj.checkAfter_invalidDetails();
+
+    }
+
+    @Test(priority = 5)
+    public void without_entering_exitTime() throws IOException, InterruptedException {
+        driver.navigate().refresh();
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
+        Actions action = new Actions(driver);
+        ConsumerParkingSlotBooking consumerParkingSlotBookingobj = new ConsumerParkingSlotBooking();
+        consumerParkingSlotBookingobj.selectLocation();
+        consumerParkingSlotBookingobj.enter_entryDate();
+        consumerParkingSlotBookingobj.enter_entryTime();
+        consumerParkingSlotBookingobj.enter_exitDate();
+
+        consumerParkingSlotBookingobj.js1Click(driver);
+        Baseclass.driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+
+
+        consumerParkingSlotBookingobj.js1Click(driver);
+        consumerParkingSlotBookingobj.checkAfter_invalidDetails();
+    }
+
+    @Test(priority = 7)
+    public void enterValidDetails() throws IOException, InterruptedException {
+
+        ConsumerParkingSlotBooking consumerParkingSlotBookingobj = new ConsumerParkingSlotBooking();
+        consumerParkingSlotBookingobj.signinForm();
+        consumerParkingSlotBookingobj.enter_Email();
+        consumerParkingSlotBookingobj.enter_password();
+        consumerParkingSlotBookingobj.click_signIn();
+
+
+        consumerParkingSlotBookingobj.selectLocation();
+
+
         consumerParkingSlotBookingobj.enter_entryDate();
         consumerParkingSlotBookingobj.enter_entryTime();
         consumerParkingSlotBookingobj.enter_exitDate();
         consumerParkingSlotBookingobj.enter_exitTime();
         consumerParkingSlotBookingobj.js1Click(driver);
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
-        try {
-            if (driver.findElement(By.xpath("(//button[@class='btn btn-primary']")).isEnabled()) {
-                System.out.println("Show more is  there");
-            }
-        } catch (Exception e) {
-            System.out.println("Show more is not there");
-        }
+        consumerParkingSlotBookingobj.bookSlot(driver);
+        consumerParkingSlotBookingobj.Add_Vehicle(driver);
+        consumerParkingSlotBookingobj.addManufacturer();
+        consumerParkingSlotBookingobj.click_submit(driver);
+        consumerParkingSlotBookingobj.check_reseve();
 
     }
-    @AfterSuite
+    @AfterTest
     public void close_browser()
     {
         driver.quit();
@@ -81,4 +152,3 @@ public class ConsumerParkingSlotBookingTest extends Baseclass {
 
 
 }
-

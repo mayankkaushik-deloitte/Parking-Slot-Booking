@@ -74,7 +74,7 @@ public class ActiveBookingTest {
     }
     @Test(priority = 5)
     public void checkActiveBookings() {
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(6000));
         try{
             Assert.assertEquals(ActiveBooking.bookingStatus(driver),true);
         }catch (Exception e){

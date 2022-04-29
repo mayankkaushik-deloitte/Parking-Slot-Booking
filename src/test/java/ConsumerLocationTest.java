@@ -39,17 +39,5 @@ public class ConsumerLocationTest extends Baseclass {
             e.printStackTrace();
         }
     }
-    @Test(priority = 6)
-    public void ValidateContactUs()
-    {
-        try
-        {
-            Consumer.ClickContactUs();
-        }
-        catch (InterruptedException e)
-        {
-            e.printStackTrace();
-        }
-    }
 
 }
